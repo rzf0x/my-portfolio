@@ -1,638 +1,1137 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Name - Neo-Brutalism Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono&display=swap"
+    />
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#3b82f6',
-                        secondary: '#1e40af',
-                        dark: '#1f2937',
-                        light: '#f9fafb'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "neon-green": "#00FF66",
+              "hot-pink": "#FF2D55",
+              "electric-blue": "#0066FF",
+              "bright-yellow": "#FFCC00",
+              "brutal-black": "#000000",
+              "off-white": "#F5F5F5",
+            },
+            fontFamily: {
+              grotesk: ["Space Grotesk", "sans-serif"],
+              mono: ["Space Mono", "monospace"],
+            },
+            boxShadow: {
+              brutal: "5px 5px 0px 0px #000000",
+              "brutal-lg": "8px 8px 0px 0px #000000",
+              "brutal-xl": "12px 12px 0px 0px #000000",
+            },
+          },
+        },
+      };
     </script>
     <style type="text/tailwindcss">
-        @layer utilities {
-            .animate-float {
-                animation: float 3s ease-in-out infinite;
-            }
-            @keyframes float {
-                0% { transform: translateY(0px); }
-                50% { transform: translateY(-10px); }
-                100% { transform: translateY(0px); }
-            }
-            .progress-bar {
-                height: 0.5rem;
-                border-radius: 9999px;
-                background-color: #e5e7eb;
-                overflow: hidden;
-            }
-            .progress-bar-fill {
-                height: 100%;
-                border-radius: 9999px;
-                transition: width 1s ease-in-out;
-            }
+      @layer utilities {
+        .rotate-1 {
+          transform: rotate(1deg);
         }
+        .rotate-neg-1 {
+          transform: rotate(-1deg);
+        }
+        .rotate-2 {
+          transform: rotate(2deg);
+        }
+        .rotate-neg-2 {
+          transform: rotate(-2deg);
+        }
+        .border-brutal {
+          border: 3px solid #000000;
+        }
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+          0% {
+            transform: translateY(0px) rotate(1deg);
+          }
+          50% {
+            transform: translateY(-15px) rotate(-1deg);
+          }
+          100% {
+            transform: translateY(0px) rotate(1deg);
+          }
+        }
+        .progress-bar {
+          height: 1.5rem;
+          border: 3px solid #000000;
+          background-color: #ffffff;
+          overflow: hidden;
+        }
+        .progress-bar-fill {
+          height: 100%;
+          transition: width 1s ease-in-out;
+        }
+        .tilt-right {
+          transform: rotate(1deg);
+        }
+        .tilt-left {
+          transform: rotate(-1deg);
+        }
+      }
     </style>
-</head>
-<body class="bg-light text-dark font-sans">
+  </head>
+  <body class="bg-off-white font-grotesk">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-primary">YourName</a>
-            
-            <!-- Mobile menu button -->
-            <button id="menu-toggle" class="md:hidden text-dark focus:outline-none">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
-            
-            <!-- Desktop menu -->
-            <ul class="hidden md:flex space-x-8">
-                <li><a href="#home" class="hover:text-primary transition-colors">Home</a></li>
-                <li><a href="#about" class="hover:text-primary transition-colors">About</a></li>
-                <li><a href="#skills" class="hover:text-primary transition-colors">Skills</a></li>
-                <li><a href="#experience" class="hover:text-primary transition-colors">Experience</a></li>
-                <li><a href="#projects" class="hover:text-primary transition-colors">Projects</a></li>
-                <li><a href="#contact" class="hover:text-primary transition-colors">Contact</a></li>
-            </ul>
-        </div>
-        
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
-            <ul class="container mx-auto px-4 py-3 space-y-3">
-                <li><a href="#home" class="block hover:text-primary transition-colors">Home</a></li>
-                <li><a href="#about" class="block hover:text-primary transition-colors">About</a></li>
-                <li><a href="#skills" class="block hover:text-primary transition-colors">Skills</a></li>
-                <li><a href="#experience" class="block hover:text-primary transition-colors">Experience</a></li>
-                <li><a href="#projects" class="block hover:text-primary transition-colors">Projects</a></li>
-                <li><a href="#contact" class="block hover:text-primary transition-colors">Contact</a></li>
-            </ul>
-        </div>
+    <nav
+      class="fixed w-full bg-bright-yellow border-b-4 border-brutal-black z-50"
+    >
+      <div
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <a
+          href="#"
+          class="text-3xl font-bold text-brutal-black transform hover:rotate-2 transition-transform"
+          >YourName</a
+        >
+
+        <!-- Mobile menu button -->
+        <button
+          id="menu-toggle"
+          class="md:hidden text-brutal-black focus:outline-none border-brutal p-2 bg-white shadow-brutal hover:bg-neon-green transition-colors"
+        >
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+
+        <!-- Desktop menu -->
+        <ul class="hidden md:flex space-x-6">
+          <li>
+            <a
+              href="#home"
+              class="text-brutal-black font-bold hover:bg-hot-pink hover:text-white px-3 py-2 transition-colors"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="#about"
+              class="text-brutal-black font-bold hover:bg-neon-green hover:text-brutal-black px-3 py-2 transition-colors"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="#skills"
+              class="text-brutal-black font-bold hover:bg-electric-blue hover:text-white px-3 py-2 transition-colors"
+              >Skills</a
+            >
+          </li>
+          <li>
+            <a
+              href="#experience"
+              class="text-brutal-black font-bold hover:bg-bright-yellow hover:text-brutal-black px-3 py-2 transition-colors"
+              >Experience</a
+            >
+          </li>
+          <li>
+            <a
+              href="#projects"
+              class="text-brutal-black font-bold hover:bg-hot-pink hover:text-white px-3 py-2 transition-colors"
+              >Projects</a
+            >
+          </li>
+          <li>
+            <a
+              href="#contact"
+              class="text-brutal-black font-bold hover:bg-neon-green hover:text-brutal-black px-3 py-2 transition-colors"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Mobile menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white border-brutal border-t-0"
+      >
+        <ul class="container mx-auto px-4 py-3 space-y-3">
+          <li>
+            <a
+              href="#home"
+              class="block text-brutal-black font-bold hover:bg-hot-pink hover:text-white px-3 py-2 transition-colors"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="#about"
+              class="block text-brutal-black font-bold hover:bg-neon-green hover:text-brutal-black px-3 py-2 transition-colors"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="#skills"
+              class="block text-brutal-black font-bold hover:bg-electric-blue hover:text-white px-3 py-2 transition-colors"
+              >Skills</a
+            >
+          </li>
+          <li>
+            <a
+              href="#experience"
+              class="block text-brutal-black font-bold hover:bg-bright-yellow hover:text-brutal-black px-3 py-2 transition-colors"
+              >Experience</a
+            >
+          </li>
+          <li>
+            <a
+              href="#projects"
+              class="block text-brutal-black font-bold hover:bg-hot-pink hover:text-white px-3 py-2 transition-colors"
+              >Projects</a
+            >
+          </li>
+          <li>
+            <a
+              href="#contact"
+              class="block text-brutal-black font-bold hover:bg-neon-green hover:text-brutal-black px-3 py-2 transition-colors"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center pt-16 bg-gradient-to-br from-light to-blue-50">
-        <div class="container mx-auto px-4 py-16 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4">
-                    Hi, I'm <span class="text-primary">Your Name</span>
-                </h1>
-                <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-gray-600">
-                    Your Professional Title
-                </h2>
-                <p class="text-lg mb-8 text-gray-700 max-w-lg">
-                    A brief introduction about yourself and what you do. Highlight your key strengths and what makes you unique in your field.
-                </p>
-                <div class="flex space-x-4">
-                    <a href="#contact" class="px-6 py-3 bg-primary text-white rounded-lg hover:bg-secondary transition-colors shadow-md">
-                        Contact Me
-                    </a>
-                    <a href="#projects" class="px-6 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-colors">
-                        View Projects
-                    </a>
-                </div>
-                <div class="flex mt-8 space-x-4">
-                    <a href="#" class="text-gray-600 hover:text-primary transition-colors">
-                        <i class="fab fa-linkedin text-2xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-600 hover:text-primary transition-colors">
-                        <i class="fab fa-github text-2xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-600 hover:text-primary transition-colors">
-                        <i class="fab fa-twitter text-2xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-600 hover:text-primary transition-colors">
-                        <i class="fas fa-envelope text-2xl"></i>
-                    </a>
-                </div>
+    <section
+      id="home"
+      class="min-h-screen flex items-center pt-24 bg-off-white"
+    >
+      <div
+        class="container mx-auto px-4 py-16 flex flex-col md:flex-row items-center"
+      >
+        <div class="md:w-1/2 mb-10 md:mb-0">
+          <div
+            class="bg-hot-pink text-white p-8 border-brutal shadow-brutal-lg transform rotate-neg-1 hover:rotate-1 transition-transform"
+          >
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">
+              Hi, I'm
+              <span class="bg-brutal-black text-neon-green px-2"
+                >Your Name</span
+              >
+            </h1>
+            <h2 class="text-2xl md:text-3xl font-bold mb-6">
+              Your Professional Title
+            </h2>
+            <p class="text-lg mb-8 font-mono">
+              A brief introduction about yourself and what you do. Highlight
+              your key strengths and what makes you unique in your field.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a
+                href="#contact"
+                class="px-6 py-3 bg-neon-green text-brutal-black font-bold border-brutal shadow-brutal hover:translate-y-1 hover:shadow-none transition-all"
+              >
+                Contact Me
+              </a>
+              <a
+                href="#projects"
+                class="px-6 py-3 bg-white text-brutal-black font-bold border-brutal shadow-brutal hover:translate-y-1 hover:shadow-none transition-all"
+              >
+                View Projects
+              </a>
             </div>
-            <div class="md:w-1/2 flex justify-center">
-                <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full bg-primary/10 flex items-center justify-center animate-float">
-                    <img src="/placeholder.svg?height=300&width=300" alt="Your Profile" class="w-56 h-56 md:w-72 md:h-72 rounded-full object-cover border-4 border-white shadow-lg">
-                    <div class="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full"></div>
-                    <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/10 rounded-full"></div>
-                </div>
-            </div>
+          </div>
+          <div class="flex mt-8 space-x-4">
+            <a
+              href="#"
+              class="w-12 h-12 bg-electric-blue text-white border-brutal flex items-center justify-center hover:bg-white hover:text-electric-blue transition-colors"
+            >
+              <i class="fab fa-linkedin-in text-xl"></i>
+            </a>
+            <a
+              href="#"
+              class="w-12 h-12 bg-brutal-black text-white border-brutal flex items-center justify-center hover:bg-white hover:text-brutal-black transition-colors"
+            >
+              <i class="fab fa-github text-xl"></i>
+            </a>
+            <a
+              href="#"
+              class="w-12 h-12 bg-hot-pink text-white border-brutal flex items-center justify-center hover:bg-white hover:text-hot-pink transition-colors"
+            >
+              <i class="fab fa-twitter text-xl"></i>
+            </a>
+            <a
+              href="#"
+              class="w-12 h-12 bg-neon-green text-brutal-black border-brutal flex items-center justify-center hover:bg-white hover:text-neon-green transition-colors"
+            >
+              <i class="fas fa-envelope text-xl"></i>
+            </a>
+          </div>
         </div>
+        <div class="md:w-1/2 flex justify-center">
+          <div class="relative">
+            <div
+              class="w-64 h-64 md:w-80 md:h-80 bg-bright-yellow border-brutal shadow-brutal-xl transform rotate-6 absolute -z-10 top-4 left-4"
+            ></div>
+            <img
+              src="/placeholder.svg?height=300&width=300"
+              alt="Your Profile"
+              class="w-64 h-64 md:w-80 md:h-80 object-cover border-brutal shadow-brutal-lg transform rotate-neg-2 animate-float"
+            />
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
-                About <span class="text-primary">Me</span>
-            </h2>
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <img src="/placeholder.svg?height=400&width=500" alt="About Me" class="rounded-lg shadow-lg max-w-full h-auto transform hover:scale-105 transition-transform duration-300">
-                </div>
-                <div class="md:w-1/2 md:pl-12">
-                    <h3 class="text-2xl font-semibold mb-4">Who I Am</h3>
-                    <p class="text-gray-700 mb-6">
-                        A detailed paragraph about your background, education, and professional journey. Explain what drives you and what you're passionate about in your field.
-                    </p>
-                    <p class="text-gray-700 mb-8">
-                        Another paragraph highlighting your professional philosophy, approach to work, and what you bring to the table that makes you stand out from others.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="flex items-center">
-                            <i class="fas fa-user-graduate text-primary mr-2"></i>
-                            <span>Your Degree</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-briefcase text-primary mr-2"></i>
-                            <span>Years Experience</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-map-marker-alt text-primary mr-2"></i>
-                            <span>Your Location</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-language text-primary mr-2"></i>
-                            <span>Languages</span>
-                        </div>
-                    </div>
-                    <a href="#" class="inline-block mt-8 px-6 py-3 bg-primary text-white rounded-lg hover:bg-secondary transition-colors shadow-md">
-                        Download CV <i class="fas fa-download ml-2"></i>
-                    </a>
-                </div>
+    <section id="about" class="py-20 bg-electric-blue">
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-4xl md:text-5xl font-bold text-center mb-16 bg-white inline-block mx-auto px-6 py-2 border-brutal shadow-brutal transform -rotate-1"
+        >
+          About <span class="text-hot-pink">Me</span>
+        </h2>
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 mb-10 md:mb-0">
+            <div class="relative">
+              <div
+                class="w-full h-full bg-neon-green border-brutal absolute top-4 left-4 -z-10"
+              ></div>
+              <img
+                src="/placeholder.svg?height=400&width=500"
+                alt="About Me"
+                class="w-full h-auto border-brutal shadow-brutal-lg transform rotate-neg-1 hover:rotate-1 transition-transform"
+              />
             </div>
+          </div>
+          <div class="md:w-1/2 md:pl-12">
+            <div
+              class="bg-white p-8 border-brutal shadow-brutal-lg transform rotate-1 hover:rotate-neg-1 transition-transform"
+            >
+              <h3 class="text-2xl font-bold mb-4 text-brutal-black">
+                Who I Am
+              </h3>
+              <p class="text-brutal-black mb-6 font-mono">
+                A detailed paragraph about your background, education, and
+                professional journey. Explain what drives you and what you're
+                passionate about in your field.
+              </p>
+              <p class="text-brutal-black mb-8 font-mono">
+                Another paragraph highlighting your professional philosophy,
+                approach to work, and what you bring to the table that makes you
+                stand out from others.
+              </p>
+              <div class="grid grid-cols-2 gap-4">
+                <div
+                  class="flex items-center bg-bright-yellow p-3 border-brutal"
+                >
+                  <i class="fas fa-user-graduate text-brutal-black mr-2"></i>
+                  <span class="font-bold">Your Degree</span>
+                </div>
+                <div
+                  class="flex items-center bg-hot-pink text-white p-3 border-brutal"
+                >
+                  <i class="fas fa-briefcase text-white mr-2"></i>
+                  <span class="font-bold">Years Experience</span>
+                </div>
+                <div
+                  class="flex items-center bg-electric-blue text-white p-3 border-brutal"
+                >
+                  <i class="fas fa-map-marker-alt text-white mr-2"></i>
+                  <span class="font-bold">Your Location</span>
+                </div>
+                <div class="flex items-center bg-neon-green p-3 border-brutal">
+                  <i class="fas fa-language text-brutal-black mr-2"></i>
+                  <span class="font-bold">Languages</span>
+                </div>
+              </div>
+              <a
+                href="#"
+                class="inline-block mt-8 px-6 py-3 bg-brutal-black text-white font-bold border-brutal shadow-brutal hover:translate-y-1 hover:shadow-none transition-all"
+              >
+                Download CV <i class="fas fa-download ml-2"></i>
+              </a>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
-                My <span class="text-primary">Skills</span>
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div>
-                    <h3 class="text-2xl font-semibold mb-8">Technical Skills</h3>
-                    <div class="space-y-6">
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">HTML/CSS</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-bar-fill bg-primary" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">JavaScript</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-bar-fill bg-primary" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">React</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-bar-fill bg-primary" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">Node.js</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-bar-fill bg-primary" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">Python</span>
-                                <span>70%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-bar-fill bg-primary" style="width: 70%"></div>
-                            </div>
-                        </div>
-                    </div>
+    <section id="skills" class="py-20 bg-off-white">
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-4xl md:text-5xl font-bold text-center mb-16 bg-hot-pink text-white inline-block mx-auto px-6 py-2 border-brutal shadow-brutal transform rotate-1"
+        >
+          My <span class="text-neon-green">Skills</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div
+            class="bg-white p-8 border-brutal shadow-brutal-lg transform rotate-neg-1"
+          >
+            <h3 class="text-2xl font-bold mb-8 text-brutal-black">
+              Technical Skills
+            </h3>
+            <div class="space-y-6">
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="font-bold text-brutal-black">HTML/CSS</span>
+                  <span class="font-bold text-brutal-black">90%</span>
                 </div>
-                <div>
-                    <h3 class="text-2xl font-semibold mb-8">Professional Skills</h3>
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                                <i class="fas fa-users text-primary text-2xl"></i>
-                            </div>
-                            <h4 class="text-xl font-semibold mb-2">Team Work</h4>
-                            <p class="text-gray-600">Collaborative approach to projects and problem-solving.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                                <i class="fas fa-lightbulb text-primary text-2xl"></i>
-                            </div>
-                            <h4 class="text-xl font-semibold mb-2">Creativity</h4>
-                            <p class="text-gray-600">Innovative thinking and unique approaches to challenges.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                                <i class="fas fa-tasks text-primary text-2xl"></i>
-                            </div>
-                            <h4 class="text-xl font-semibold mb-2">Project Management</h4>
-                            <p class="text-gray-600">Efficient organization and execution of complex projects.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                                <i class="fas fa-comments text-primary text-2xl"></i>
-                            </div>
-                            <h4 class="text-xl font-semibold mb-2">Communication</h4>
-                            <p class="text-gray-600">Clear and effective verbal and written communication.</p>
-                        </div>
-                    </div>
+                <div class="progress-bar">
+                  <div
+                    class="progress-bar-fill bg-hot-pink"
+                    style="width: 90%"
+                  ></div>
                 </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="font-bold text-brutal-black">JavaScript</span>
+                  <span class="font-bold text-brutal-black">85%</span>
+                </div>
+                <div class="progress-bar">
+                  <div
+                    class="progress-bar-fill bg-electric-blue"
+                    style="width: 85%"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="font-bold text-brutal-black">React</span>
+                  <span class="font-bold text-brutal-black">80%</span>
+                </div>
+                <div class="progress-bar">
+                  <div
+                    class="progress-bar-fill bg-neon-green"
+                    style="width: 80%"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="font-bold text-brutal-black">Node.js</span>
+                  <span class="font-bold text-brutal-black">75%</span>
+                </div>
+                <div class="progress-bar">
+                  <div
+                    class="progress-bar-fill bg-bright-yellow"
+                    style="width: 75%"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="font-bold text-brutal-black">Python</span>
+                  <span class="font-bold text-brutal-black">70%</span>
+                </div>
+                <div class="progress-bar">
+                  <div
+                    class="progress-bar-fill bg-hot-pink"
+                    style="width: 70%"
+                  ></div>
+                </div>
+              </div>
             </div>
+          </div>
+          <div class="transform rotate-1">
+            <h3
+              class="text-2xl font-bold mb-8 text-brutal-black bg-bright-yellow inline-block px-4 py-2 border-brutal shadow-brutal"
+            >
+              Professional Skills
+            </h3>
+            <div class="grid grid-cols-2 gap-6">
+              <div
+                class="bg-white p-6 border-brutal shadow-brutal hover:translate-y-1 hover:shadow-none transition-all"
+              >
+                <div
+                  class="w-16 h-16 bg-hot-pink border-brutal flex items-center justify-center mb-4"
+                >
+                  <i class="fas fa-users text-white text-2xl"></i>
+                </div>
+                <h4 class="text-xl font-bold mb-2 text-brutal-black">
+                  Team Work
+                </h4>
+                <p class="text-brutal-black font-mono">
+                  Collaborative approach to projects and problem-solving.
+                </p>
+              </div>
+              <div
+                class="bg-white p-6 border-brutal shadow-brutal hover:translate-y-1 hover:shadow-none transition-all"
+              >
+                <div
+                  class="w-16 h-16 bg-neon-green border-brutal flex items-center justify-center mb-4"
+                >
+                  <i class="fas fa-lightbulb text-brutal-black text-2xl"></i>
+                </div>
+                <h4 class="text-xl font-bold mb-2 text-brutal-black">
+                  Creativity
+                </h4>
+                <p class="text-brutal-black font-mono">
+                  Innovative thinking and unique approaches to challenges.
+                </p>
+              </div>
+              <div
+                class="bg-white p-6 border-brutal shadow-brutal hover:translate-y-1 hover:shadow-none transition-all"
+              >
+                <div
+                  class="w-16 h-16 bg-electric-blue border-brutal flex items-center justify-center mb-4"
+                >
+                  <i class="fas fa-tasks text-white text-2xl"></i>
+                </div>
+                <h4 class="text-xl font-bold mb-2 text-brutal-black">
+                  Project Management
+                </h4>
+                <p class="text-brutal-black font-mono">
+                  Efficient organization and execution of complex projects.
+                </p>
+              </div>
+              <div
+                class="bg-white p-6 border-brutal shadow-brutal hover:translate-y-1 hover:shadow-none transition-all"
+              >
+                <div
+                  class="w-16 h-16 bg-bright-yellow border-brutal flex items-center justify-center mb-4"
+                >
+                  <i class="fas fa-comments text-brutal-black text-2xl"></i>
+                </div>
+                <h4 class="text-xl font-bold mb-2 text-brutal-black">
+                  Communication
+                </h4>
+                <p class="text-brutal-black font-mono">
+                  Clear and effective verbal and written communication.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
-                Work <span class="text-primary">Experience</span>
-            </h2>
-            <div class="relative">
-                <!-- Timeline line -->
-                <div class="absolute left-0 md:left-1/2 h-full w-0.5 bg-gray-200 transform -translate-x-1/2"></div>
-                
-                <!-- Timeline items -->
-                <div class="timeline-items">
-                    <!-- Item 1 -->
-                    <div class="relative flex flex-col md:flex-row items-center md:justify-between mb-16">
-                        <div class="order-2 md:order-1 md:w-5/12 md:text-right md:pr-8 mt-6 md:mt-0">
-                            <h3 class="text-xl font-semibold">Senior Position</h3>
-                            <h4 class="text-primary font-medium mb-2">Company Name</h4>
-                            <p class="text-gray-600 mb-3">Jan 2020 - Present</p>
-                            <p class="text-gray-700">
-                                Describe your responsibilities, achievements, and the skills you utilized in this role. Highlight specific projects or initiatives you led.
-                            </p>
-                        </div>
-                        <div class="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary flex items-center justify-center z-10 order-1 md:order-2">
-                            <i class="fas fa-briefcase text-white"></i>
-                        </div>
-                        <div class="order-3 md:w-5/12 md:pl-8 mt-6 md:mt-0"></div>
-                    </div>
-                    
-                    <!-- Item 2 -->
-                    <div class="relative flex flex-col md:flex-row items-center md:justify-between mb-16">
-                        <div class="order-2 md:order-1 md:w-5/12 md:text-right md:pr-8 mt-6 md:mt-0"></div>
-                        <div class="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary flex items-center justify-center z-10 order-1 md:order-2">
-                            <i class="fas fa-briefcase text-white"></i>
-                        </div>
-                        <div class="order-3 md:w-5/12 md:pl-8 mt-6 md:mt-0">
-                            <h3 class="text-xl font-semibold">Mid-level Position</h3>
-                            <h4 class="text-primary font-medium mb-2">Company Name</h4>
-                            <p class="text-gray-600 mb-3">Jan 2018 - Dec 2019</p>
-                            <p class="text-gray-700">
-                                Describe your responsibilities, achievements, and the skills you utilized in this role. Highlight specific projects or initiatives you led.
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <!-- Item 3 -->
-                    <div class="relative flex flex-col md:flex-row items-center md:justify-between mb-16">
-                        <div class="order-2 md:order-1 md:w-5/12 md:text-right md:pr-8 mt-6 md:mt-0">
-                            <h3 class="text-xl font-semibold">Junior Position</h3>
-                            <h4 class="text-primary font-medium mb-2">Company Name</h4>
-                            <p class="text-gray-600 mb-3">Jan 2016 - Dec 2017</p>
-                            <p class="text-gray-700">
-                                Describe your responsibilities, achievements, and the skills you utilized in this role. Highlight specific projects or initiatives you led.
-                            </p>
-                        </div>
-                        <div class="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary flex items-center justify-center z-10 order-1 md:order-2">
-                            <i class="fas fa-briefcase text-white"></i>
-                        </div>
-                        <div class="order-3 md:w-5/12 md:pl-8 mt-6 md:mt-0"></div>
-                    </div>
+    <section id="experience" class="py-20 bg-neon-green">
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-4xl md:text-5xl font-bold text-center mb-16 bg-brutal-black text-white inline-block mx-auto px-6 py-2 border-brutal shadow-brutal transform -rotate-1"
+        >
+          Work <span class="text-bright-yellow">Experience</span>
+        </h2>
+        <div class="relative">
+          <!-- Timeline line -->
+          <div
+            class="absolute left-0 md:left-1/2 h-full w-2 bg-brutal-black transform -translate-x-1/2 z-0"
+          ></div>
+
+          <!-- Timeline items -->
+          <div class="timeline-items">
+            <!-- Item 1 -->
+            <div
+              class="relative flex flex-col md:flex-row items-center md:justify-between mb-16"
+            >
+              <div
+                class="order-2 md:order-1 md:w-5/12 md:text-right md:pr-8 mt-6 md:mt-0"
+              >
+                <div
+                  class="bg-white p-6 border-brutal shadow-brutal transform rotate-neg-1 hover:rotate-1 transition-transform"
+                >
+                  <h3 class="text-xl font-bold text-brutal-black">
+                    Senior Position
+                  </h3>
+                  <h4 class="text-hot-pink font-bold mb-2">Company Name</h4>
+                  <p class="text-brutal-black mb-3 font-mono">
+                    Jan 2020 - Present
+                  </p>
+                  <p class="text-brutal-black font-mono">
+                    Describe your responsibilities, achievements, and the skills
+                    you utilized in this role. Highlight specific projects or
+                    initiatives you led.
+                  </p>
                 </div>
+              </div>
+              <div
+                class="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-12 h-12 bg-hot-pink border-brutal flex items-center justify-center z-10 order-1 md:order-2"
+              >
+                <i class="fas fa-briefcase text-white"></i>
+              </div>
+              <div class="order-3 md:w-5/12 md:pl-8 mt-6 md:mt-0"></div>
             </div>
+
+            <!-- Item 2 -->
+            <div
+              class="relative flex flex-col md:flex-row items-center md:justify-between mb-16"
+            >
+              <div
+                class="order-2 md:order-1 md:w-5/12 md:text-right md:pr-8 mt-6 md:mt-0"
+              ></div>
+              <div
+                class="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-12 h-12 bg-electric-blue border-brutal flex items-center justify-center z-10 order-1 md:order-2"
+              >
+                <i class="fas fa-briefcase text-white"></i>
+              </div>
+              <div class="order-3 md:w-5/12 md:pl-8 mt-6 md:mt-0">
+                <div
+                  class="bg-white p-6 border-brutal shadow-brutal transform rotate-1 hover:rotate-neg-1 transition-transform"
+                >
+                  <h3 class="text-xl font-bold text-brutal-black">
+                    Mid-level Position
+                  </h3>
+                  <h4 class="text-electric-blue font-bold mb-2">
+                    Company Name
+                  </h4>
+                  <p class="text-brutal-black mb-3 font-mono">
+                    Jan 2018 - Dec 2019
+                  </p>
+                  <p class="text-brutal-black font-mono">
+                    Describe your responsibilities, achievements, and the skills
+                    you utilized in this role. Highlight specific projects or
+                    initiatives you led.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div
+              class="relative flex flex-col md:flex-row items-center md:justify-between mb-16"
+            >
+              <div
+                class="order-2 md:order-1 md:w-5/12 md:text-right md:pr-8 mt-6 md:mt-0"
+              >
+                <div
+                  class="bg-white p-6 border-brutal shadow-brutal transform rotate-neg-1 hover:rotate-1 transition-transform"
+                >
+                  <h3 class="text-xl font-bold text-brutal-black">
+                    Junior Position
+                  </h3>
+                  <h4 class="text-neon-green font-bold mb-2">Company Name</h4>
+                  <p class="text-brutal-black mb-3 font-mono">
+                    Jan 2016 - Dec 2017
+                  </p>
+                  <p class="text-brutal-black font-mono">
+                    Describe your responsibilities, achievements, and the skills
+                    you utilized in this role. Highlight specific projects or
+                    initiatives you led.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-12 h-12 bg-bright-yellow border-brutal flex items-center justify-center z-10 order-1 md:order-2"
+              >
+                <i class="fas fa-briefcase text-brutal-black"></i>
+              </div>
+              <div class="order-3 md:w-5/12 md:pl-8 mt-6 md:mt-0"></div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
-                My <span class="text-primary">Projects</span>
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
-                    <div class="relative overflow-hidden">
-                        <img src="/placeholder.svg?height=300&width=500" alt="Project 1" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-primary/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div class="flex space-x-3">
-                                <a href="#" class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-gray-100 transition-colors">
-                                    <i class="fas fa-link text-primary"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-gray-100 transition-colors">
-                                    <i class="fab fa-github text-primary"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Project Name</h3>
-                        <p class="text-gray-600 mb-4">
-                            Brief description of the project, its purpose, and your role in it. Highlight the technologies used and the problems solved.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">HTML</span>
-                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">CSS</span>
-                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">JavaScript</span>
-                        </div>
-                    </div>
+    <section id="projects" class="py-20 bg-off-white">
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-4xl md:text-5xl font-bold text-center mb-16 bg-electric-blue text-white inline-block mx-auto px-6 py-2 border-brutal shadow-brutal transform rotate-1"
+        >
+          My <span class="text-bright-yellow">Projects</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project 1 -->
+          <div
+            class="bg-white border-brutal shadow-brutal-lg transform rotate-neg-1 hover:rotate-1 transition-transform group"
+          >
+            <div class="relative overflow-hidden border-b-brutal">
+              <img
+                src="/placeholder.svg?height=300&width=500"
+                alt="Project 1"
+                class="w-full h-56 object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-hot-pink flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                <div class="flex space-x-3">
+                  <a
+                    href="#"
+                    class="w-12 h-12 bg-white border-brutal flex items-center justify-center hover:bg-neon-green transition-colors"
+                  >
+                    <i class="fas fa-link text-brutal-black"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-12 h-12 bg-white border-brutal flex items-center justify-center hover:bg-neon-green transition-colors"
+                  >
+                    <i class="fab fa-github text-brutal-black"></i>
+                  </a>
                 </div>
-                
-                <!-- Project 2 -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
-                    <div class="relative overflow-hidden">
-                        <img src="/placeholder.svg?height=300&width=500" alt="Project 2" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-primary/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div class="flex space-x-3">
-                                <a href="#" class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-gray-100 transition-colors">
-                                    <i class="fas fa-link text-primary"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-gray-100 transition-colors">
-                                    <i class="fab fa-github text-primary"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Project Name</h3>
-                        <p class="text-gray-600 mb-4">
-                            Brief description of the project, its purpose, and your role in it. Highlight the technologies used and the problems solved.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">React</span>
-                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Node.js</span>
-                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">MongoDB</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
-                    <div class="relative overflow-hidden">
-                        <img src="/placeholder.svg?height=300&width=500" alt="Project 3" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-primary/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div class="flex space-x-3">
-                                <a href="#" class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-gray-100 transition-colors">
-                                    <i class="fas fa-link text-primary"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-gray-100 transition-colors">
-                                    <i class="fab fa-github text-primary"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Project Name</h3>
-                        <p class="text-gray-600 mb-4">
-                            Brief description of the project, its purpose, and your role in it. Highlight the technologies used and the problems solved.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Python</span>
-                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Django</span>
-                            <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">PostgreSQL</span>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
-            <div class="text-center mt-12">
-                <a href="#" class="inline-block px-6 py-3 bg-primary text-white rounded-lg hover:bg-secondary transition-colors shadow-md">
-                    View All Projects <i class="fas fa-arrow-right ml-2"></i>
-                </a>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2 text-brutal-black">
+                Project Name
+              </h3>
+              <p class="text-brutal-black mb-4 font-mono">
+                Brief description of the project, its purpose, and your role in
+                it. Highlight the technologies used and the problems solved.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-hot-pink text-white border-brutal text-sm font-bold"
+                  >HTML</span
+                >
+                <span
+                  class="px-3 py-1 bg-electric-blue text-white border-brutal text-sm font-bold"
+                  >CSS</span
+                >
+                <span
+                  class="px-3 py-1 bg-neon-green text-brutal-black border-brutal text-sm font-bold"
+                  >JavaScript</span
+                >
+              </div>
             </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div
+            class="bg-white border-brutal shadow-brutal-lg transform rotate-1 hover:rotate-neg-1 transition-transform group"
+          >
+            <div class="relative overflow-hidden border-b-brutal">
+              <img
+                src="/placeholder.svg?height=300&width=500"
+                alt="Project 2"
+                class="w-full h-56 object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-electric-blue flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                <div class="flex space-x-3">
+                  <a
+                    href="#"
+                    class="w-12 h-12 bg-white border-brutal flex items-center justify-center hover:bg-neon-green transition-colors"
+                  >
+                    <i class="fas fa-link text-brutal-black"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-12 h-12 bg-white border-brutal flex items-center justify-center hover:bg-neon-green transition-colors"
+                  >
+                    <i class="fab fa-github text-brutal-black"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2 text-brutal-black">
+                Project Name
+              </h3>
+              <p class="text-brutal-black mb-4 font-mono">
+                Brief description of the project, its purpose, and your role in
+                it. Highlight the technologies used and the problems solved.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-hot-pink text-white border-brutal text-sm font-bold"
+                  >React</span
+                >
+                <span
+                  class="px-3 py-1 bg-electric-blue text-white border-brutal text-sm font-bold"
+                  >Node.js</span
+                >
+                <span
+                  class="px-3 py-1 bg-neon-green text-brutal-black border-brutal text-sm font-bold"
+                  >MongoDB</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div
+            class="bg-white border-brutal shadow-brutal-lg transform rotate-neg-2 hover:rotate-2 transition-transform group"
+          >
+            <div class="relative overflow-hidden border-b-brutal">
+              <img
+                src="/placeholder.svg?height=300&width=500"
+                alt="Project 3"
+                class="w-full h-56 object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-neon-green flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                <div class="flex space-x-3">
+                  <a
+                    href="#"
+                    class="w-12 h-12 bg-white border-brutal flex items-center justify-center hover:bg-hot-pink transition-colors"
+                  >
+                    <i class="fas fa-link text-brutal-black"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-12 h-12 bg-white border-brutal flex items-center justify-center hover:bg-hot-pink transition-colors"
+                  >
+                    <i class="fab fa-github text-brutal-black"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2 text-brutal-black">
+                Project Name
+              </h3>
+              <p class="text-brutal-black mb-4 font-mono">
+                Brief description of the project, its purpose, and your role in
+                it. Highlight the technologies used and the problems solved.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 bg-bright-yellow text-brutal-black border-brutal text-sm font-bold"
+                  >Python</span
+                >
+                <span
+                  class="px-3 py-1 bg-hot-pink text-white border-brutal text-sm font-bold"
+                  >Django</span
+                >
+                <span
+                  class="px-3 py-1 bg-electric-blue text-white border-brutal text-sm font-bold"
+                  >PostgreSQL</span
+                >
+              </div>
+            </div>
+          </div>
         </div>
+        <div class="text-center mt-12">
+          <a
+            href="#"
+            class="inline-block px-8 py-4 bg-brutal-black text-white font-bold border-brutal shadow-brutal hover:translate-y-1 hover:shadow-none transition-all transform rotate-1"
+          >
+            View All Projects <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
-                Get In <span class="text-primary">Touch</span>
-            </h2>
-            <div class="flex flex-col md:flex-row gap-10">
-                <div class="md:w-1/2">
-                    <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
-                    <p class="text-gray-700 mb-8">
-                        Feel free to reach out to me for any inquiries, collaborations, or just to say hello. I'm always open to discussing new projects and opportunities.
+    <section id="contact" class="py-20 bg-bright-yellow">
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-4xl md:text-5xl font-bold text-center mb-16 bg-white inline-block mx-auto px-6 py-2 border-brutal shadow-brutal transform -rotate-1"
+        >
+          Get In <span class="text-hot-pink">Touch</span>
+        </h2>
+        <div class="flex flex-col md:flex-row gap-10">
+          <div class="md:w-1/2">
+            <div
+              class="bg-white p-8 border-brutal shadow-brutal-lg transform rotate-neg-1 hover:rotate-1 transition-transform"
+            >
+              <h3 class="text-2xl font-bold mb-6 text-brutal-black">
+                Contact Information
+              </h3>
+              <p class="text-brutal-black mb-8 font-mono">
+                Feel free to reach out to me for any inquiries, collaborations,
+                or just to say hello. I'm always open to discussing new projects
+                and opportunities.
+              </p>
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <div
+                    class="w-12 h-12 bg-hot-pink border-brutal flex items-center justify-center mr-4"
+                  >
+                    <i class="fas fa-map-marker-alt text-white"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-brutal-black">Location</h4>
+                    <p class="text-brutal-black font-mono">
+                      Your City, Country
                     </p>
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-map-marker-alt text-primary"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold">Location</h4>
-                                <p class="text-gray-600">Your City, Country</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-envelope text-primary"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold">Email</h4>
-                                <p class="text-gray-600">your.email@example.com</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-phone text-primary"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold">Phone</h4>
-                                <p class="text-gray-600">+1 234 567 890</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex mt-8 space-x-4">
-                        <a href="#" class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
+                  </div>
                 </div>
-                
-                <div class="md:w-1/2">
-                    <form class="bg-gray-50 p-8 rounded-lg shadow-md">
-                        <div class="mb-6">
-                            <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
-                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="John Doe">
-                        </div>
-                        <div class="mb-6">
-                            <label for="email" class="block text-gray-700 font-medium mb-2">Your Email</label>
-                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="john@example.com">
-                        </div>
-                        <div class="mb-6">
-                            <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
-                            <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Project Inquiry">
-                        </div>
-                        <div class="mb-6">
-                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
-                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Your message here..."></textarea>
-                        </div>
-                        <button type="submit" class="w-full px-6 py-3 bg-primary text-white rounded-lg hover:bg-secondary transition-colors shadow-md">
-                            Send Message <i class="fas fa-paper-plane ml-2"></i>
-                        </button>
-                    </form>
+                <div class="flex items-start">
+                  <div
+                    class="w-12 h-12 bg-electric-blue border-brutal flex items-center justify-center mr-4"
+                  >
+                    <i class="fas fa-envelope text-white"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-brutal-black">Email</h4>
+                    <p class="text-brutal-black font-mono">
+                      your.email@example.com
+                    </p>
+                  </div>
                 </div>
+                <div class="flex items-start">
+                  <div
+                    class="w-12 h-12 bg-neon-green border-brutal flex items-center justify-center mr-4"
+                  >
+                    <i class="fas fa-phone text-brutal-black"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-brutal-black">Phone</h4>
+                    <p class="text-brutal-black font-mono">+1 234 567 890</p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex mt-8 space-x-4">
+                <a
+                  href="#"
+                  class="w-12 h-12 bg-white border-brutal flex items-center justify-center text-brutal-black hover:bg-hot-pink hover:text-white transition-colors"
+                >
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-12 h-12 bg-white border-brutal flex items-center justify-center text-brutal-black hover:bg-electric-blue hover:text-white transition-colors"
+                >
+                  <i class="fab fa-github"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-12 h-12 bg-white border-brutal flex items-center justify-center text-brutal-black hover:bg-neon-green hover:text-brutal-black transition-colors"
+                >
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-12 h-12 bg-white border-brutal flex items-center justify-center text-brutal-black hover:bg-bright-yellow hover:text-brutal-black transition-colors"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
             </div>
+          </div>
+
+          <div class="md:w-1/2">
+            <form
+              class="bg-white p-8 border-brutal shadow-brutal-lg transform rotate-1 hover:rotate-neg-1 transition-transform"
+            >
+              <div class="mb-6">
+                <label for="name" class="block text-brutal-black font-bold mb-2"
+                  >Your Name</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  class="w-full px-4 py-3 border-brutal focus:outline-none focus:ring-2 focus:ring-hot-pink"
+                  placeholder="John Doe"
+                />
+              </div>
+              <div class="mb-6">
+                <label
+                  for="email"
+                  class="block text-brutal-black font-bold mb-2"
+                  >Your Email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  class="w-full px-4 py-3 border-brutal focus:outline-none focus:ring-2 focus:ring-hot-pink"
+                  placeholder="john@example.com"
+                />
+              </div>
+              <div class="mb-6">
+                <label
+                  for="subject"
+                  class="block text-brutal-black font-bold mb-2"
+                  >Subject</label
+                >
+                <input
+                  type="text"
+                  id="subject"
+                  class="w-full px-4 py-3 border-brutal focus:outline-none focus:ring-2 focus:ring-hot-pink"
+                  placeholder="Project Inquiry"
+                />
+              </div>
+              <div class="mb-6">
+                <label
+                  for="message"
+                  class="block text-brutal-black font-bold mb-2"
+                  >Message</label
+                >
+                <textarea
+                  id="message"
+                  rows="5"
+                  class="w-full px-4 py-3 border-brutal focus:outline-none focus:ring-2 focus:ring-hot-pink"
+                  placeholder="Your message here..."
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="w-full px-6 py-4 bg-brutal-black text-white font-bold border-brutal shadow-brutal hover:translate-y-1 hover:shadow-none transition-all"
+              >
+                Send Message <i class="fas fa-paper-plane ml-2"></i>
+              </button>
+            </form>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-10">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <h2 class="text-2xl font-bold">YourName</h2>
-                    <p class="text-gray-400 mt-2">Professional Title</p>
-                </div>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a>
-                    <a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a>
-                    <a href="#skills" class="text-gray-400 hover:text-white transition-colors">Skills</a>
-                    <a href="#experience" class="text-gray-400 hover:text-white transition-colors">Experience</a>
-                    <a href="#projects" class="text-gray-400 hover:text-white transition-colors">Projects</a>
-                    <a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
-                </div>
-            </div>
-            <hr class="border-gray-800 my-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 mb-4 md:mb-0">© 2025 YourName. All rights reserved.</p>
-                <div class="flex space-x-4">
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </div>
-            </div>
+    <footer class="bg-brutal-black text-white py-10">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-6 md:mb-0">
+            <h2 class="text-3xl font-bold text-neon-green">YourName</h2>
+            <p class="text-white mt-2 font-mono">Professional Title</p>
+          </div>
+          <div class="flex flex-wrap justify-center gap-6">
+            <a
+              href="#home"
+              class="text-white hover:text-neon-green transition-colors font-bold"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="text-white hover:text-hot-pink transition-colors font-bold"
+              >About</a
+            >
+            <a
+              href="#skills"
+              class="text-white hover:text-electric-blue transition-colors font-bold"
+              >Skills</a
+            >
+            <a
+              href="#experience"
+              class="text-white hover:text-bright-yellow transition-colors font-bold"
+              >Experience</a
+            >
+            <a
+              href="#projects"
+              class="text-white hover:text-neon-green transition-colors font-bold"
+              >Projects</a
+            >
+            <a
+              href="#contact"
+              class="text-white hover:text-hot-pink transition-colors font-bold"
+              >Contact</a
+            >
+          </div>
         </div>
+        <hr class="border-gray-800 my-8" />
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-400 mb-4 md:mb-0 font-mono">
+            © 2025 YourName. All rights reserved.
+          </p>
+          <div class="flex space-x-4">
+            <a
+              href="#"
+              class="text-gray-400 hover:text-neon-green transition-colors"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a
+              href="#"
+              class="text-gray-400 hover:text-hot-pink transition-colors"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="#"
+              class="text-gray-400 hover:text-electric-blue transition-colors"
+            >
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a
+              href="#"
+              class="text-gray-400 hover:text-bright-yellow transition-colors"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
     </footer>
 
     <!-- Back to top button -->
-    <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 bg-primary text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-secondary">
-        <i class="fas fa-arrow-up"></i>
+    <button
+      id="back-to-top"
+      class="fixed bottom-6 right-6 w-16 h-16 bg-hot-pink text-white border-brutal shadow-brutal flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-neon-green hover:text-brutal-black transform rotate-3"
+    >
+      <i class="fas fa-arrow-up text-xl"></i>
     </button>
 
     <!-- JavaScript -->
     <script>
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+      // Mobile menu toggle
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Close mobile menu when clicking on a link
+      const mobileLinks = mobileMenu.querySelectorAll("a");
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
         });
-        
-        // Close mobile menu when clicking on a link
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Back to top button
-        const backToTopButton = document.getElementById('back-to-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.remove('opacity-0', 'invisible');
-                backToTopButton.classList.add('opacity-100', 'visible');
-            } else {
-                backToTopButton.classList.remove('opacity-100', 'visible');
-                backToTopButton.classList.add('opacity-0', 'invisible');
-            }
-        });
-        
-        backToTopButton.addEventListener('click', () => {
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
             window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
             });
+          }
         });
-        
-        // Animate skill bars on scroll
-        const skillSection = document.getElementById('skills');
-        const progressBars = document.querySelectorAll('.progress-bar-fill');
-        let animated = false;
-        
-        function animateSkills() {
-            const sectionPos = skillSection.getBoundingClientRect().top;
-            const screenPos = window.innerHeight / 1.3;
-            
-            if (sectionPos < screenPos && !animated) {
-                animated = true;
-                progressBars.forEach(bar => {
-                    const width = bar.style.width;
-                    bar.style.width = '0';
-                    setTimeout(() => {
-                        bar.style.width = width;
-                    }, 100);
-                });
-            }
+      });
+
+      // Back to top button
+      const backToTopButton = document.getElementById("back-to-top");
+
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          backToTopButton.classList.remove("opacity-0", "invisible");
+          backToTopButton.classList.add("opacity-100", "visible");
+        } else {
+          backToTopButton.classList.remove("opacity-100", "visible");
+          backToTopButton.classList.add("opacity-0", "invisible");
         }
-        
-        window.addEventListener('scroll', animateSkills);
+      });
+
+      backToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Animate skill bars on scroll
+      const skillSection = document.getElementById("skills");
+      const progressBars = document.querySelectorAll(".progress-bar-fill");
+      let animated = false;
+
+      function animateSkills() {
+        const sectionPos = skillSection.getBoundingClientRect().top;
+        const screenPos = window.innerHeight / 1.3;
+
+        if (sectionPos < screenPos && !animated) {
+          animated = true;
+          progressBars.forEach((bar) => {
+            const width = bar.style.width;
+            bar.style.width = "0";
+            setTimeout(() => {
+              bar.style.width = width;
+            }, 100);
+          });
+        }
+      }
+
+      window.addEventListener("scroll", animateSkills);
     </script>
-</body>
+  </body>
 </html>
